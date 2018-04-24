@@ -24,4 +24,17 @@ $ ./build_and_push.sh sagemaker-summit-demo
 
 # Step 2 - Create the SageMaker model
 
-First check that the model artefacts have been uploaded to S3. They should reside in a folder 
+First check that the model artefacts have been uploaded to S3. They should reside in the S3 bucket name: ```sagemaker-<region_name>-<account_id>``` and key ```models/lhr-summit-demo/model.tar.gz```.
+
+Do this in the AWS Management Console.
+
+# Step 3 - Create the SageMaker Endpoint
+
+Now we need to call the SageMaker APIs to first create a SageMaker endpoint configuration.
+
+Do this in the AWS Management Console.
+
+# Step 4 - Call the endpoint
+
+Open a new SageMaker notebook instance and launch the notebook named *call_endpoint.ipynb* to call the SageMaker endpoint for this demo application.
+

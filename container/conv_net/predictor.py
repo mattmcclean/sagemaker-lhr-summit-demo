@@ -23,7 +23,7 @@ prefix = '/opt/ml/'
 
 model_path = os.path.join(prefix, 'model')
 
-MODEL_NAME = os.environ.get("MODEL_FILENAME", "conv_net_model")
+MODEL_NAME = os.environ.get("MODEL_FILENAME", "lhr-summit-demo")
 
 IMAGE_SIZE = int(os.environ.get("IMAGE_SIZE", "224"))
 
