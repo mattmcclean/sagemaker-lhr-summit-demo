@@ -1,2 +1,2 @@
-# sagemaker-fastai-deploy-demo
-Provides an example Jupyter notebook and container source code showing how to train a fast.ai based model on SageMaker notebook then deploying as a SageMaker Model and Endpoint.
+# Introduction
+This repository contains the source code, Jupyter notebooks, configuration etc. for the SageMaker demo presenteted at the AWS London Summit 2018.
