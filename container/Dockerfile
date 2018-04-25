@@ -22,7 +22,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      rm ~/miniconda.sh && \
     /opt/conda/bin/conda install conda-build
 
-RUN git clone https://github.com/fastai/fastai.git
+RUN git clone https://github.com/mattmcclean/fastai.git
 RUN cd fastai/ && ls && /opt/conda/bin/conda env create -f environment-cpu.yml
 RUN /opt/conda/bin/conda clean -ya
 

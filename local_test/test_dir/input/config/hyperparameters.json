@@ -1,0 +1,5 @@
+{
+  "learning_rate": 0.01,
+  "epochs": 3,
+  "image_size": 224
+}
