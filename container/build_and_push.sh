@@ -50,7 +50,7 @@ if [ -d "/home/ec2-user/SageMaker" ]; then
   sudo service docker restart
 fi
 
-docker build --build-arg aws_account_id=${account} --build-arg aws_region=${region} -t ${image} .
+docker build -t ${image} .
 docker tag ${image} ${fullname}
 
 docker push ${fullname}
