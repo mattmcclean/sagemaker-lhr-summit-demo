@@ -8,6 +8,10 @@ import json
 
 import boto3
 
+def get_random_image(dir_name):
+    file_name = dir_name + random.choice(os.listdir(dir_name)) 
+    return file_name
+
 def call_endpoint(endpoint_name, image_file):
     print "Calling endpoint: " + endpoint_name + " with image file: " + image_file
     
@@ -18,8 +22,9 @@ def call_endpoint(endpoint_name, image_file):
     response = runtime.invoke_endpoint(EndpointName=endpoint_name, 
                                    ContentType='application/x-image', 
                                    Body=payload)
-    result = response['Body'].read()
-    print json.loads(result)
+    result = json.loads(response['Body'].read())
+    print "SageMaker Endpoint Result:"
+    print json.dumps(result, indent=4, sort_keys=True)
     
 def usage():
     print "Usage: " + sys.argv[0] + " -e <endpoint-name> -i <image-file>"
@@ -36,6 +41,7 @@ def main():
     endpoint = None
     image_file = None
     verbose = False
+    default_base_dir = '/home/ec2-user/environment/data/dogscats/test1/'
     for o, a in opts:
         if o == "-v":
             verbose = True
@@ -55,9 +61,9 @@ def main():
         sys.exit(2)
 
     if not image_file:
-        print "Image file not defined"
-        usage()
-        sys.exit(2)
+        print "Getting random image from test dir: " + default_base_dir
+        image_file= get_random_image(default_base_dir)
+        print "Image file is : " + image_file
         
     call_endpoint(endpoint, image_file)
 
